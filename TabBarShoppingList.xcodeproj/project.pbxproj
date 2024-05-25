@@ -13,6 +13,8 @@
 		55E678842C02682000190FCE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 55E678822C02682000190FCE /* Main.storyboard */; };
 		55E678862C02682200190FCE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 55E678852C02682200190FCE /* Assets.xcassets */; };
 		55E678892C02682200190FCE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 55E678872C02682200190FCE /* LaunchScreen.storyboard */; };
+		55E678912C0275B000190FCE /* CustomTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 55E678902C0275B000190FCE /* CustomTableViewCell.xib */; };
+		55E678932C02778700190FCE /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55E678922C02778700190FCE /* CustomTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,8 @@
 		55E678852C02682200190FCE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		55E678882C02682200190FCE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		55E6788A2C02682200190FCE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		55E678902C0275B000190FCE /* CustomTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomTableViewCell.xib; sourceTree = "<group>"; };
+		55E678922C02778700190FCE /* CustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +67,8 @@
 				55E678852C02682200190FCE /* Assets.xcassets */,
 				55E678872C02682200190FCE /* LaunchScreen.storyboard */,
 				55E6788A2C02682200190FCE /* Info.plist */,
+				55E678902C0275B000190FCE /* CustomTableViewCell.xib */,
+				55E678922C02778700190FCE /* CustomTableViewCell.swift */,
 			);
 			path = TabBarShoppingList;
 			sourceTree = "<group>";
@@ -127,6 +133,7 @@
 			files = (
 				55E678892C02682200190FCE /* LaunchScreen.storyboard in Resources */,
 				55E678862C02682200190FCE /* Assets.xcassets in Resources */,
+				55E678912C0275B000190FCE /* CustomTableViewCell.xib in Resources */,
 				55E678842C02682000190FCE /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -140,6 +147,7 @@
 			files = (
 				55E678812C02682000190FCE /* ViewController.swift in Sources */,
 				55E6787D2C02682000190FCE /* AppDelegate.swift in Sources */,
+				55E678932C02778700190FCE /* CustomTableViewCell.swift in Sources */,
 				55E6787F2C02682000190FCE /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -306,9 +314,12 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = iOSLabFIAngelLopez.TabBarShoppingList;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -333,9 +344,12 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = iOSLabFIAngelLopez.TabBarShoppingList;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
