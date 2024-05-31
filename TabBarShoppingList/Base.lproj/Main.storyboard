@@ -1,41 +1,71 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22154" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="RGS-L7-dUK">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="RGS-L7-dUK">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22130"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22684"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
-        <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--List-->
         <scene sceneID="8qy-wX-1Ra">
             <objects>
-                <viewController id="Iyu-6O-AeR" sceneMemberID="viewController">
+                <viewController id="Iyu-6O-AeR" customClass="ViewController" customModule="TabBarShoppingList" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="tie-g3-n28">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="fnd-2j-5iW">
-                                <rect key="frame" x="0.0" y="59" width="393" height="710"/>
+                                <rect key="frame" x="0.0" y="59" width="393" height="563"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <button key="tableFooterView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="Xu6-jc-VMM">
+                                    <rect key="frame" x="0.0" y="0.0" width="393" height="44"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <state key="normal" title="Button"/>
+                                    <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                </button>
                             </tableView>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Lln-Mp-Nyu">
+                                <rect key="frame" x="0.0" y="637" width="393" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cSx-pt-My5">
+                                <rect key="frame" x="0.0" y="694" width="393" height="43"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                <connections>
+                                    <action selector="addProdutStore:" destination="Iyu-6O-AeR" eventType="touchUpInside" id="NZZ-9j-SEk"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Kb7-ft-W92"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="fnd-2j-5iW" firstAttribute="bottom" secondItem="Kb7-ft-W92" secondAttribute="bottom" constant="-147" id="80b-At-6GC"/>
+                            <constraint firstItem="cSx-pt-My5" firstAttribute="leading" secondItem="Kb7-ft-W92" secondAttribute="leading" id="92a-ga-SRY"/>
                             <constraint firstItem="fnd-2j-5iW" firstAttribute="leading" secondItem="Kb7-ft-W92" secondAttribute="leading" id="BFo-xP-WoD"/>
-                            <constraint firstItem="Kb7-ft-W92" firstAttribute="bottom" secondItem="fnd-2j-5iW" secondAttribute="bottom" id="BGe-P3-Z3K"/>
+                            <constraint firstItem="Kb7-ft-W92" firstAttribute="bottom" secondItem="fnd-2j-5iW" secondAttribute="bottom" constant="147" id="BGe-P3-Z3K"/>
+                            <constraint firstItem="Kb7-ft-W92" firstAttribute="trailing" secondItem="Lln-Mp-Nyu" secondAttribute="trailing" id="Hwj-iu-eZZ"/>
+                            <constraint firstItem="Kb7-ft-W92" firstAttribute="bottom" secondItem="cSx-pt-My5" secondAttribute="bottom" constant="32" id="XqY-Fz-bzY"/>
                             <constraint firstItem="Kb7-ft-W92" firstAttribute="trailing" secondItem="fnd-2j-5iW" secondAttribute="trailing" id="iz1-uH-jiI"/>
+                            <constraint firstItem="Kb7-ft-W92" firstAttribute="trailing" secondItem="cSx-pt-My5" secondAttribute="trailing" id="rMH-tT-3or"/>
+                            <constraint firstItem="Lln-Mp-Nyu" firstAttribute="top" secondItem="fnd-2j-5iW" secondAttribute="bottom" constant="15" id="sHk-Jn-tTm"/>
                             <constraint firstItem="fnd-2j-5iW" firstAttribute="top" secondItem="Kb7-ft-W92" secondAttribute="top" id="tom-4S-6Wm"/>
+                            <constraint firstItem="Lln-Mp-Nyu" firstAttribute="leading" secondItem="Kb7-ft-W92" secondAttribute="leading" id="u1H-zy-1zV"/>
+                            <constraint firstItem="cSx-pt-My5" firstAttribute="top" secondItem="Lln-Mp-Nyu" secondAttribute="bottom" constant="23" id="y80-Xj-jrz"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="List" image="list.bullet.clipboard.fill" catalog="system" id="M2Q-fy-dLb"/>
+                    <connections>
+                        <outlet property="tableStore" destination="fnd-2j-5iW" id="QZI-GL-0hA"/>
+                        <outlet property="textField" destination="Lln-Mp-Nyu" id="ydy-en-ulj"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Vyh-Cf-yUZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1121" y="-701"/>
+            <point key="canvasLocation" x="1119.8473282442749" y="-701.4084507042254"/>
         </scene>
         <!--Shopping-->
         <scene sceneID="tne-QT-ifu">
@@ -48,26 +78,10 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="mnz-5z-CKs">
                                 <rect key="frame" x="0.0" y="59" width="393" height="710"/>
                                 <subviews>
-                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Kdy-nM-XMH">
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="bFS-hQ-JDc">
                                         <rect key="frame" x="0.0" y="0.0" width="393" height="355"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                        <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="tRp-b7-hbe">
-                                            <size key="itemSize" width="128" height="128"/>
-                                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                        </collectionViewFlowLayout>
-                                        <cells>
-                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="Wr8-Ds-DBC">
-                                                <rect key="frame" x="0.0" y="0.0" width="127.99999999999997" height="128"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="TJs-KD-REV">
-                                                    <rect key="frame" x="0.0" y="0.0" width="127.99999999999997" height="128"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
-                                                </collectionViewCellContentView>
-                                            </collectionViewCell>
-                                        </cells>
-                                    </collectionView>
+                                    </tableView>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="mUW-R2-Hp3">
                                         <rect key="frame" x="0.0" y="355" width="393" height="355"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -95,12 +109,13 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Shopping" image="takeoutbag.and.cup.and.straw.fill" catalog="system" selectedImage="takeoutbag.and.cup.and.straw.fill" id="Lkl-4h-QKj"/>
                     <connections>
+                        <outlet property="tableShoppingCart" destination="bFS-hQ-JDc" id="3Ij-UC-VGv"/>
                         <outlet property="tableView" destination="mUW-R2-Hp3" id="RUD-LZ-Efu"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1120" y="481"/>
+            <point key="canvasLocation" x="1119.8473282442749" y="480.98591549295776"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="yjp-QI-vUD">
