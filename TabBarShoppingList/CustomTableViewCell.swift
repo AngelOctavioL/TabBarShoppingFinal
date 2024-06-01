@@ -11,6 +11,7 @@ class CustomTableViewCell: UITableViewCell {
     @IBOutlet weak var cellTextLabel: UILabel!
     @IBOutlet weak var cellImagen: UIImageView!
     @IBOutlet weak var cellButton: UIButton!
+    var addToCartAction: (() -> Void)?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -21,6 +22,6 @@ class CustomTableViewCell: UITableViewCell {
     }
     
     @IBAction func addProductToShopping() {
-        print("En el boton del producto")
+        addToCartAction?()
     }
 }

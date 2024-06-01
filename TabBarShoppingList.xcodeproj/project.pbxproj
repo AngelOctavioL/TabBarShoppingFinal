@@ -12,6 +12,8 @@
 		4383035B2C0A302500FEB030 /* CustomTableStoreViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4383035A2C0A302500FEB030 /* CustomTableStoreViewCell.swift */; };
 		439C5EC92C09BDD800CC1024 /* CustomCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 439C5EC82C09BDD800CC1024 /* CustomCollectionViewCell.xib */; };
 		439C5ECB2C09C02200CC1024 /* CollectionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 439C5ECA2C09C02200CC1024 /* CollectionTableViewCell.swift */; };
+		5542458E2C0A7AEA0036F9E2 /* StoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5542458D2C0A7AEA0036F9E2 /* StoreViewController.swift */; };
+		554245B62C0AA6620036F9E2 /* DataSharingProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 554245B52C0AA6620036F9E2 /* DataSharingProtocol.swift */; };
 		55E6787D2C02682000190FCE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55E6787C2C02682000190FCE /* AppDelegate.swift */; };
 		55E6787F2C02682000190FCE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55E6787E2C02682000190FCE /* SceneDelegate.swift */; };
 		55E678812C02682000190FCE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55E678802C02682000190FCE /* ViewController.swift */; };
@@ -28,6 +30,8 @@
 		4383035A2C0A302500FEB030 /* CustomTableStoreViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableStoreViewCell.swift; sourceTree = "<group>"; };
 		439C5EC82C09BDD800CC1024 /* CustomCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomCollectionViewCell.xib; sourceTree = "<group>"; };
 		439C5ECA2C09C02200CC1024 /* CollectionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionTableViewCell.swift; sourceTree = "<group>"; };
+		5542458D2C0A7AEA0036F9E2 /* StoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreViewController.swift; sourceTree = "<group>"; };
+		554245B52C0AA6620036F9E2 /* DataSharingProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSharingProtocol.swift; sourceTree = "<group>"; };
 		55E678792C02682000190FCE /* TabBarShoppingList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TabBarShoppingList.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		55E6787C2C02682000190FCE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		55E6787E2C02682000190FCE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -72,6 +76,7 @@
 			children = (
 				55E6787C2C02682000190FCE /* AppDelegate.swift */,
 				55E6787E2C02682000190FCE /* SceneDelegate.swift */,
+				5542458D2C0A7AEA0036F9E2 /* StoreViewController.swift */,
 				55E678802C02682000190FCE /* ViewController.swift */,
 				55E678822C02682000190FCE /* Main.storyboard */,
 				55E678852C02682200190FCE /* Assets.xcassets */,
@@ -84,6 +89,7 @@
 				439C5ECA2C09C02200CC1024 /* CollectionTableViewCell.swift */,
 				438303582C0A2BDE00FEB030 /* CustomTableStoreViewCell.xib */,
 				4383035A2C0A302500FEB030 /* CustomTableStoreViewCell.swift */,
+				554245B52C0AA6620036F9E2 /* DataSharingProtocol.swift */,
 			);
 			path = TabBarShoppingList;
 			sourceTree = "<group>";
@@ -162,6 +168,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5542458E2C0A7AEA0036F9E2 /* StoreViewController.swift in Sources */,
 				55E678812C02682000190FCE /* ViewController.swift in Sources */,
 				439C5ECB2C09C02200CC1024 /* CollectionTableViewCell.swift in Sources */,
 				433909662C094CB5001CBE50 /* CustomCollectionViewCell.swift in Sources */,
@@ -169,6 +176,7 @@
 				55E678932C02778700190FCE /* CustomTableViewCell.swift in Sources */,
 				55E6787F2C02682000190FCE /* SceneDelegate.swift in Sources */,
 				4383035B2C0A302500FEB030 /* CustomTableStoreViewCell.swift in Sources */,
+				554245B62C0AA6620036F9E2 /* DataSharingProtocol.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -327,7 +335,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -359,7 +367,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

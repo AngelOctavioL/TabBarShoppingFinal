@@ -10,21 +10,17 @@ import UIKit
 class ViewController: UIViewController {
     @IBOutlet weak var tableView:UITableView!
     @IBOutlet weak var tableShoppingCart:UITableView!
-    @IBOutlet weak var tableStore:UITableView!
-    @IBOutlet weak var textField: UITextField!
+    @IBOutlet  weak var searchBar: UISearchBar!
     
-    //var arrayShoppingList = [String]()
-    var arrayShoppingList = ["uno", "dos", "tres", "cuatro", "cinco", "seis", "siete", "ocho"]
-    var arrayShoppingCart = ["ocho", "nueve", "diez", "once", "doce", "trece", "catorce", "quince"]
-    var arrayProductsInstore = [String]()
+    //var arrayShoppingList = ["uno", "dos", "tres", "cuatro", "cinco", "seis", "siete", "ocho"]
+    var arrayShoppingList = [String]()
+    var arrayShoppingCart = [String]()
+    
+    var searchArray: [String] = []
+    var searching = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Asegúrate de que todas las tablas no sean nil antes de asignar dataSource y delegate
-//        guard let tableView = tableView, let tableShoppingCart = tableShoppingCart, let tableStore = tableStore else {
-//            print("Una o más tablas no están conectadas")
-//            return
-//        }
 
         tableView.dataSource = self
         tableView.delegate = self
@@ -34,66 +30,87 @@ class ViewController: UIViewController {
         tableShoppingCart.delegate = self
         tableShoppingCart.register(CollectionTableViewCell.self, forCellReuseIdentifier: CollectionTableViewCell.identifier)
         
-        if let tableStore = tableStore { // Verificación de nil
-            tableStore.dataSource = self
-            tableStore.delegate = self
-            tableStore.register(UITableViewCell.self, forCellReuseIdentifier: "storeCell")
-        } else {
-            print("tableStore is nil")
-        }
+        self.searchBar.delegate = self
     }
     
-    @IBAction func addProdutStore(_ sender: Any) {
-        arrayProductsInstore.append(textField.text ?? "")
-        print(arrayProductsInstore)
-        tableStore?.reloadData() // Uso opcional para evitar crashes si es nil
-    }
+    override func viewWillAppear(_ animated: Bool) {
+            super.viewWillAppear(animated)
+            //searchArray = arrayShoppingList
+            // Acceder al arrayProductsInstore de StoreViewController
+            if let tabBarController = self.tabBarController,
+               let storeVC = tabBarController.viewControllers?.first(where: { $0 is StoreViewController }) as? StoreViewController {
+                let arrayProductsInstore = storeVC.arrayProductsInstore
+                print(arrayProductsInstore)
+                arrayShoppingList = arrayProductsInstore
+                // Utilizar el arrayProductsInstore en ViewController como desees
+                
+                // Recargar la tabla después de obtener los datos
+                searchArray = arrayShoppingList
+                tableView.reloadData()
+            }
+        }
+    
+    // Agregar esta función para manejar la acción del botón
+        func addToCartButtonTapped(for indexPath: IndexPath) {
+            let selectedItem = arrayShoppingList[indexPath.row]
+            arrayShoppingCart.append(selectedItem)
+            tableShoppingCart.reloadData()
+        }
 }
 
 extension ViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if tableView == self.tableView {
-            return arrayShoppingList.count
+            return searchArray.count
         } else if tableView == self.tableShoppingCart {
             return 1 // Assuming you want only one row in the second table
-        } else if tableView == self.tableStore {
-            return arrayProductsInstore.count
         }
 
         return 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if tableView == self.tableView {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as? CustomTableViewCell
-            cell?.cellTextLabel.text = arrayShoppingList[indexPath.row]
-            return cell ?? UITableViewCell()
-        } else if tableView == self.tableShoppingCart {
-            let cellCart = tableView.dequeueReusableCell(withIdentifier: CollectionTableViewCell.identifier, for: indexPath) as! CollectionTableViewCell
-            cellCart.configure(with: arrayShoppingCart)
-            return cellCart
-        } else if tableView == self.tableStore {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "storeCell", for: indexPath)
-            cell.textLabel?.text = arrayProductsInstore[indexPath.row]
-            return cell
-        }
+            if tableView == self.tableView {
+                let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! CustomTableViewCell
+                cell.cellTextLabel.text = searchArray[indexPath.row]
+                
+                // Asigna la función de manejo del botón
+                cell.addToCartAction = { [weak self] in
+                    self?.addToCartButtonTapped(for: indexPath)
+                }
+                
+                return cell
+            } else if tableView == self.tableShoppingCart {
+                let cellCart = tableView.dequeueReusableCell(withIdentifier: CollectionTableViewCell.identifier, for: indexPath) as! CollectionTableViewCell
+                cellCart.configure(with: arrayShoppingCart)
+                return cellCart
+            }
 
-        return UITableViewCell()
-    }
+            return UITableViewCell()
+        }
 }
 
 extension ViewController: UITableViewDelegate {
-    func tableShoppingCart(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if tableShoppingCart == self.tableShoppingCart {
-            arrayShoppingCart.remove(at: indexPath.row)
-            tableShoppingCart.deleteRows(at: [indexPath], with: .automatic)
-        }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print("hola!!!")
+        self.arrayShoppingCart.remove(at: indexPath.row)
+        tableShoppingCart.reloadData()
     }
+    
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if tableView == self.tableShoppingCart {
             return 300
         }
         return UITableView.automaticDimension
+    }
+}
+
+extension ViewController: UISearchBarDelegate {
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        searchArray = arrayShoppingList.filter({ $0.prefix(searchText.count).lowercased() == searchText.lowercased()})
+        searching = true
+        tableView.reloadData()
     }
 }
